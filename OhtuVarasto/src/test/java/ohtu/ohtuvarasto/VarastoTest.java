@@ -75,7 +75,7 @@ public class VarastoTest {
     public void lisaa2(){
         varasto.lisaaVarastoon(5);
         
-        assertEquals(2, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
     }
     
     @Test
