@@ -1,0 +1,125 @@
+import java.util.Scanner;
+
+public class Kertoma {
+    public static int kertoma(int luku) {
+        // kirjoita koodi tänne
+        int kertoma = 1;
+        if (luku == 0)
+            return 1;
+        else
+            for(int i = 1; i<=luku; i++){
+                kertoma = kertoma*i;
+            }
+        return kertoma;
+    }
+    
+    public static Scanner lukija = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        System.out.print("Anna luku: ");
+        int luku = Integer.parseInt( lukija.nextLine() );
+
+        int vastaus = kertoma( luku );
+
+        System.out.println("Kertoma: " + vastaus);
+       
+    }
+}
+
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class SuuriKertoma {
+
+    public static BigInteger suuriKertoma(int luku) {
+        // kirjoita koodi tänne
+        BigInteger kertoma = BigInteger.ONE;
+        
+        for(int i = 1; i <= luku; i++){
+            kertoma = kertoma.multiply(BigInteger.valueOf(i));
+        }
+
+        return kertoma;
+    }
+
+    public static Scanner lukija = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        System.out.print("Anna luku: ");
+        int luku = Integer.parseInt( lukija.nextLine() );
+
+        BigInteger vastaus = suuriKertoma( luku );
+
+        System.out.println("Kertoma: " + vastaus);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Palindromi {
+    static Scanner lukija = new Scanner(System.in);
+
+    static boolean palindromi(String sana) {
+       int vasen = 0;
+       int oikea = sana.length()-1;
+       
+       while (vasen < oikea){
+           if (sana.charAt(vasen) != sana.charAt(oikea)){
+               return false;
+           }
+           vasen++;
+           oikea--;
+       }
+       return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.print("Anna sana: ");
+        String sana = lukija.nextLine();
+        
+        if ( palindromi(sana) )
+            System.out.print("Sana on palindromi.");
+        else
+            System.out.print("Sana ei ole palindromi.");
+    }
+}
+
+import java.util.Scanner;
+
+public class PieninSuurin {
+    public static Scanner lukija = new Scanner(System.in);
+
+    public static void pieninSuurin(int lukuja) {
+        int[] luvut = new int[lukuja];
+        int pienin = 0;
+        int suurin = 0;
+        for(int i = 0; i < luvut.length; i++){
+            luvut[i] = lukija.nextInt();
+        }
+        
+        pienin = luvut[0];
+        suurin = luvut[0];
+        
+        for(int i = 0; i<luvut.length; i++){
+            if(luvut[i]<pienin)
+                pienin = luvut[i];
+            if(luvut[i]>suurin)
+                suurin = luvut[i];
+        }
+
+        // tee koodisi tänne
+
+        System.out.println("Pienin: " + pienin);
+        System.out.print("Suurin: " + suurin);
+    }
+
+    public static void main(String[] args) {
+        System.out.print("Kuinka monta? ");
+        int lukuja = lukija.nextInt();
+        System.out.println("Anna luvut:");
+        pieninSuurin( lukuja );
+    }
+}
+
