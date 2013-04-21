@@ -87,9 +87,22 @@ public class VarastoTest {
     }
     
     @Test
+    public void kontstruktori(){
+        Varasto toinen = new Varasto(10, 0);
+        assertEquals(0, toinen.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void kontstruktori2(){
+        Varasto kolmas = new Varasto(-2, 0);
+        assertEquals(0, kolmas.getTilavuus(), vertailuTarkkuus);
+    }
+    
+    @Test
     public void otaEnemmanKuinSaldo(){
         varasto.lisaaVarastoon(2);
         varasto.otaVarastosta(4);
+        varasto.otaVarastosta(-2);
         
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
